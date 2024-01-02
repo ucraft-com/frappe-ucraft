@@ -68,7 +68,7 @@ app_license = "mit"
 # ------------
 
 # before_install = "ucraft.install.before_install"
-# after_install = "ucraft.install.after_install"
+after_install = "ucraft.install.after_install"
 
 # Uninstallation
 # ------------
@@ -215,10 +215,14 @@ app_license = "mit"
 
 # Authentication and authorization
 # --------------------------------
+authenticate_login = "ucraft.sso.auth.authenticate_login"
 
 # auth_hooks = [
 # 	"ucraft.auth.validate"
 # ]
+rest_api = {
+    'create_company_for_ucraft_project': 'ucraft.api.create_company_for_ucraft_project'
+}
 
 # Automatically update python controller files with type annotations for this app.
 # export_python_type_annotations = True
@@ -226,4 +230,3 @@ app_license = "mit"
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-
