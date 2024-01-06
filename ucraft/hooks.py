@@ -122,13 +122,28 @@ after_uninstall = "ucraft.install.after_uninstall"
 # ---------------
 # Hook on document methods and events
 # TODO Add the Kafka producer here on all doc events this way we can send the data to the Kafka topic  - Utkarsh
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+    "*": {
+        "on_update": "ucraft.kafka.send_to_kafka",
+        "on_cancel": "ucraft.kafka.send_to_kafka",
+        "on_trash": "ucraft.kafka.send_to_kafka",
+        "on_submit": "ucraft.kafka.send_to_kafka",
+        "before_insert": "ucraft.kafka.send_to_kafka",
+        "after_insert": "ucraft.kafka.send_to_kafka",
+        "before_save": "ucraft.kafka.send_to_kafka",
+        "after_save": "ucraft.kafka.send_to_kafka",
+        "before_rename": "ucraft.kafka.send_to_kafka",
+        "after_rename": "ucraft.kafka.send_to_kafka",
+        "before_cancel": "ucraft.kafka.send_to_kafka",
+        "after_cancel": "ucraft.kafka.send_to_kafka",
+        "before_trash": "ucraft.kafka.send_to_kafka",
+        "after_trash": "ucraft.kafka.send_to_kafka",
+        "before_restore": "ucraft.kafka.send_to_kafka",
+        "after_restore": "ucraft.kafka.send_to_kafka",
+        "before_delete": "ucraft.kafka.send_to_kafka",
+        "after_delete": "ucraft.kafka.send_to_kafka"
+    }
+}
 
 # Scheduled Tasks
 # ---------------
@@ -215,7 +230,7 @@ after_uninstall = "ucraft.install.after_uninstall"
 
 # Authentication and authorization
 # --------------------------------
-authenticate_login = "ucraft.sso.auth.authenticate_login"
+# authenticate_login = "ucraft.sso.auth.authenticate_login"
 
 # auth_hooks = [
 # 	"ucraft.auth.validate"

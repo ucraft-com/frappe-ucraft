@@ -1,3 +1,5 @@
+import os
+
 import frappe
 from frappe.custom.doctype.custom_field.custom_field import CustomField
 
@@ -5,6 +7,7 @@ from frappe.custom.doctype.custom_field.custom_field import CustomField
 # Install
 def after_install():
     create_ucraft_project_id_field()
+    create_ucraft_authtoken_and_is_ucraft_user_field_on_user()
 
 
 def create_ucraft_authtoken_and_is_ucraft_user_field_on_user():
