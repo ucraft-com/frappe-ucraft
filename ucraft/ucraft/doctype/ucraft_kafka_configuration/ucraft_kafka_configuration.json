@@ -11,7 +11,9 @@
   "kafka_sasl_username",
   "kafka_sasl_password",
   "kafka_partitioner",
-  "kafks_security_protocol"
+  "kafks_security_protocol",
+  "kafka_topic",
+  "disable_sync_to_kafka"
  ],
  "fields": [
   {
@@ -20,40 +22,58 @@
    "label": "Config Values"
   },
   {
+   "default": "erp-next-producer",
    "fieldname": "kafka_client_id",
    "fieldtype": "Data",
    "label": "Kafka Client ID"
   },
   {
+   "default": "kafka-broker-0-dev.stage.ucraft.ai:9094\n",
    "fieldname": "kafka_bootstrap_service",
    "fieldtype": "Data",
    "label": "Kafka Bootstrap Service"
   },
   {
+   "default": "admin",
    "fieldname": "kafka_sasl_username",
    "fieldtype": "Data",
    "label": "Kafka Sasl Username"
   },
   {
+   "default": "yt3aSUX644UgCPpJzA3Q5AZ6jWZyZ9",
    "fieldname": "kafka_sasl_password",
    "fieldtype": "Data",
    "label": "Kafka sasl password"
   },
   {
+   "default": "murmur2",
    "fieldname": "kafka_partitioner",
    "fieldtype": "Data",
    "label": "Kafka Partitioner"
   },
   {
+   "default": "SASL_PLAINTEXT",
    "fieldname": "kafks_security_protocol",
    "fieldtype": "Data",
    "label": "Kafks Security Protocol"
+  },
+  {
+   "default": "erp-next-events",
+   "fieldname": "kafka_topic",
+   "fieldtype": "Data",
+   "label": "Kafka Topic"
+  },
+  {
+   "default": "0",
+   "fieldname": "disable_sync_to_kafka",
+   "fieldtype": "Check",
+   "label": "Disable Sync To Kafka"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-01-06 15:50:46.618773",
+ "modified": "2024-01-06 15:54:16.647623",
  "modified_by": "Administrator",
  "module": "Ucraft",
  "name": "Ucraft Kafka Configuration",
