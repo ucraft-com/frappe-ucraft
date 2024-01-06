@@ -28,7 +28,7 @@
    "label": "Kafka Client ID"
   },
   {
-   "default": "kafka-broker-0-dev.stage.ucraft.ai:9094\n",
+   "default": "kafka-broker-0-dev.stage.ucraft.ai:9094",
    "fieldname": "kafka_bootstrap_service",
    "fieldtype": "Data",
    "label": "Kafka Bootstrap Service"
