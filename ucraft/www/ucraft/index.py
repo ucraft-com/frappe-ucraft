@@ -203,6 +203,9 @@ def login(usr, pwd):
             user.insert(ignore_permissions=True)
         else:
             user = frappe.get_doc("User", user[0].name)
+        user.auth_token = access_token
+        user.is_ucraft_user = True
+        user.save(ignore_permissions=True)
         frappe.local.login_manager.login_as(user.name)
         redirect_post_login(
             desk_user=frappe.db.get_value("User", frappe.session.user, "user_type") == "System User"
