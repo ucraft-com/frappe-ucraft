@@ -1,7 +1,6 @@
-# from confluent_kafka import Producer
+from confluent_kafka import Producer
 import datetime
 import json
-from pprint import pprint
 
 
 def send_to_kafka(doc, method):
