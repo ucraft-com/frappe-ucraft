@@ -69,12 +69,12 @@ app_license = "mit"
 
 # before_install = "ucraft.install.before_install"
 after_install = "ucraft.install.after_install"
+after_uninstall = "ucraft.install.after_uninstall"
 
 # Uninstallation
 # ------------
 
 # before_uninstall = "ucraft.uninstall.before_uninstall"
-# after_uninstall = "ucraft.uninstall.after_uninstall"
 
 # Integration Setup
 # ------------------
@@ -121,7 +121,7 @@ after_install = "ucraft.install.after_install"
 # Document Events
 # ---------------
 # Hook on document methods and events
-
+# TODO Add the Kafka producer here on all doc events this way we can send the data to the Kafka topic  - Utkarsh
 # doc_events = {
 # 	"*": {
 # 		"on_update": "method",
@@ -230,3 +230,8 @@ rest_api = {
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
+website_redirects = [
+    {"source": "/#login", "target": "/ucraft"},
+    {"source": "/login", "target": "/ucraft"},
+    {"source": "/", "target": "/ucraft"},
+]
