@@ -12,7 +12,8 @@ class UcraftKafkaConfiguration(Document):
 
     def create_kafka_producer(self):
         # Extract the configuration details from the current instance
-        if self.disable_sync_to_kafka:
+        # if self.disable_sync_to_kafka: TODO remove this after fixing the bug
+        if True:
             return False, None, None
 
         kafka_bootstrap_service = self.kafka_bootstrap_service
