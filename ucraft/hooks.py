@@ -4,7 +4,9 @@ app_publisher = "Webisoft"
 app_description = "This app is an ERPNext integration manager for UCraft"
 app_email = "utkarsh@webisoft.com"
 app_license = "mit"
-# required_apps = []
+app_logo_url = '/assets/whitelabel/images/whitelabel_logo.svg'
+# required_apps = ["frappe/hrms"]
+
 
 # Includes in <head>
 # ------------------
@@ -121,7 +123,6 @@ after_uninstall = "ucraft.install.after_uninstall"
 # Document Events
 # ---------------
 # Hook on document methods and events
-# TODO Add the Kafka producer here on all doc events this way we can send the data to the Kafka topic  - Utkarsh
 doc_events = {
     "*": {
         "on_update": "ucraft.kafka.send_to_kafka",
