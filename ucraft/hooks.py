@@ -69,7 +69,7 @@ app_logo_url = '/assets/whitelabel/images/whitelabel_logo.svg'
 # Installation
 # ------------
 
-# before_install = "ucraft.install.before_install"
+before_install = "ucraft.install.before_install"
 after_install = "ucraft.install.after_install"
 after_uninstall = "ucraft.install.after_uninstall"
 

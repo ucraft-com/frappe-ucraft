@@ -4,11 +4,14 @@ import frappe
 from frappe.custom.doctype.custom_field.custom_field import CustomField
 
 
+def before_install():
+    os.system("bench pip install confluent_kafka==2.3.0")
+
+
 # Install
 def after_install():
     create_ucraft_project_id_field()
     create_ucraft_authtoken_and_is_ucraft_user_field_on_user()
-    os.system("pip install confluent_kafka==2.3.0")
 
 
 def create_ucraft_authtoken_and_is_ucraft_user_field_on_user():
@@ -69,6 +72,7 @@ def after_uninstall():
     delete_auth_token_field()
     delete_is_ucraft_user_field()
     frappe.db.commit()  # Commit the changes
+    os.system("bench pip uninstall confluent_kafka==2.3.0")
 
 
 def delete_ucraft_project_id_field():

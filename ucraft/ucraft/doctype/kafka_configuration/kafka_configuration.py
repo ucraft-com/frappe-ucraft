@@ -15,7 +15,6 @@ class KafkaConfiguration(Document):
         # if self.disable_sync_to_kafka: TODO remove this after fixing the bug
         # if True:
         #     return False, None, None
-        
 
         conf = {
             'bootstrap.servers': self.kafka_bootstrap_service,
@@ -30,7 +29,6 @@ class KafkaConfiguration(Document):
         p = Producer(conf)
 
         return True, p, self.kafka_topic
-
 
     def get_active_events_list(self):
         events = []
@@ -74,3 +72,6 @@ class KafkaConfiguration(Document):
         if self.not_found:
             events.append("not_found")
         return events
+
+    def active_doc_names(self):
+        pass
