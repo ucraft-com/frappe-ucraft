@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestUcraftKafkaConfiguration(FrappeTestCase):
+class TestKafkaConfiguration(FrappeTestCase):
 	pass
