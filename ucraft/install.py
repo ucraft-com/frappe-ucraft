@@ -12,6 +12,7 @@ def before_install():
 def after_install():
     create_ucraft_project_id_field()
     create_ucraft_authtoken_and_is_ucraft_user_field_on_user()
+    os.system("bench migrate")
 
 
 def create_ucraft_authtoken_and_is_ucraft_user_field_on_user():
@@ -72,7 +73,7 @@ def after_uninstall():
     delete_auth_token_field()
     delete_is_ucraft_user_field()
     frappe.db.commit()  # Commit the changes
-    os.system("bench pip uninstall confluent_kafka==2.3.0")
+    os.system("bench pip uninstall confluent_kafka==2.3.0 -y")
 
 
 def delete_ucraft_project_id_field():
