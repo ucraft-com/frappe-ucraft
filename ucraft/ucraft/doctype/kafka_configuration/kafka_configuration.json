@@ -8,25 +8,25 @@
   "doctypes_to_send_section",
   "objects_to_sync",
   "hooks_to_send_section",
-  "on_update",
-  "on_cancel",
-  "on_trash",
-  "on_submit",
-  "before_insert",
-  "after_insert",
-  "after_cancel",
-  "before_restore",
-  "before_delete",
+  "send_on_update",
+  "send_on_cancel",
+  "send_on_trash",
+  "send_on_submit",
+  "send_before_insert",
+  "send_after_insert",
+  "send_after_cancel",
+  "send_before_restore",
+  "send_before_delete",
   "column_break_hslb",
-  "before_save",
-  "after_save",
-  "before_rename",
-  "after_rename",
-  "before_cancel",
-  "before_trash",
-  "after_trash",
-  "after_restore",
-  "after_delete"
+  "send_before_save",
+  "send_after_save",
+  "send_before_rename",
+  "send_after_rename",
+  "send_before_cancel",
+  "send_before_trash",
+  "send_after_trash",
+  "send_after_restore",
+  "send_after_delete"
  ],
  "fields": [
   {
@@ -37,109 +37,109 @@
   },
   {
    "default": "0",
-   "fieldname": "on_update",
+   "fieldname": "send_on_update",
    "fieldtype": "Check",
    "label": "On Update"
   },
   {
    "default": "0",
-   "fieldname": "on_cancel",
+   "fieldname": "send_on_cancel",
    "fieldtype": "Check",
    "label": "On Cancel"
   },
   {
    "default": "0",
-   "fieldname": "on_trash",
+   "fieldname": "send_on_trash",
    "fieldtype": "Check",
    "label": "On Trash"
   },
   {
    "default": "0",
-   "fieldname": "on_submit",
+   "fieldname": "send_on_submit",
    "fieldtype": "Check",
    "label": "On Submit"
   },
   {
    "default": "0",
-   "fieldname": "before_insert",
+   "fieldname": "send_before_insert",
    "fieldtype": "Check",
    "label": "Before Insert"
   },
   {
    "default": "0",
-   "fieldname": "after_insert",
+   "fieldname": "send_after_insert",
    "fieldtype": "Check",
    "label": "After Insert"
   },
   {
    "default": "0",
-   "fieldname": "before_save",
+   "fieldname": "send_before_save",
    "fieldtype": "Check",
    "label": "Before Save"
   },
   {
    "default": "0",
-   "fieldname": "after_save",
+   "fieldname": "send_after_save",
    "fieldtype": "Check",
    "label": "After Save"
   },
   {
    "default": "0",
-   "fieldname": "before_rename",
+   "fieldname": "send_before_rename",
    "fieldtype": "Check",
    "label": "Before Rename"
   },
   {
    "default": "0",
-   "fieldname": "after_rename",
+   "fieldname": "send_after_rename",
    "fieldtype": "Check",
    "label": "After Rename"
   },
   {
    "default": "0",
-   "fieldname": "before_cancel",
+   "fieldname": "send_before_cancel",
    "fieldtype": "Check",
    "label": "Before Cancel"
   },
   {
    "default": "0",
-   "fieldname": "after_cancel",
+   "fieldname": "send_after_cancel",
    "fieldtype": "Check",
    "label": "After Cancel"
   },
   {
    "default": "0",
-   "fieldname": "before_trash",
+   "fieldname": "send_before_trash",
    "fieldtype": "Check",
    "label": "Before Trash"
   },
   {
    "default": "0",
-   "fieldname": "after_trash",
+   "fieldname": "send_after_trash",
    "fieldtype": "Check",
    "label": "After Trash"
   },
   {
    "default": "0",
-   "fieldname": "before_restore",
+   "fieldname": "send_before_restore",
    "fieldtype": "Check",
    "label": "Before Restore"
   },
   {
    "default": "0",
-   "fieldname": "after_restore",
+   "fieldname": "send_after_restore",
    "fieldtype": "Check",
    "label": "After Restore"
   },
   {
    "default": "0",
-   "fieldname": "before_delete",
+   "fieldname": "send_before_delete",
    "fieldtype": "Check",
    "label": "Before Delete"
   },
   {
    "default": "0",
-   "fieldname": "after_delete",
+   "fieldname": "send_after_delete",
    "fieldtype": "Check",
    "label": "After Delete"
   },
