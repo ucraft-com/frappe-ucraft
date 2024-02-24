@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from confluent_kafka import Producer
 import datetime
 import json
@@ -20,6 +22,7 @@ def send_to_kafka_async(doc, method, *args, **kwargs):
         queue="short",
         **args_to_send
     )
+    send_to_kafka(**args_to_send)
 
 
 @frappe.whitelist()
@@ -39,13 +42,12 @@ def send_to_kafka(
     }
     # Create the Kafka producer
     producer = Producer(conf)
-    doc_name = doc.as_dict().get("name", "")
-    should_execute = True
+    should_execute = False
     try:
         kafka_config = frappe.get_doc("Kafka Configuration")
-        should_execute = kafka_config.should_execute(doc_name, method_name)
-    except:
-        pass
+        should_execute = kafka_config.should_execute(doc.doctype, method_name)
+    except Exception as e:
+        frappe.log("Error getting Kafka Configuration " + str(e))
 
     if should_execute:
         data = serialize_dates(doc.as_dict())
