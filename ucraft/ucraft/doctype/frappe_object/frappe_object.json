@@ -10,15 +10,19 @@
  ],
  "fields": [
   {
+   "description": "This is the name of the doctype in Frappe eg: Item, Company, etc.",
    "fieldname": "method_name",
    "fieldtype": "Data",
-   "label": "method name"
+   "in_list_view": 1,
+   "label": "DocType Name",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-01-22 21:56:06.932555",
+ "modified": "2024-02-23 19:00:02.449866",
  "modified_by": "Administrator",
  "module": "Ucraft",
  "name": "Frappe Object",

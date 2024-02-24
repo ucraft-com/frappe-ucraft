@@ -1,12 +1,10 @@
-from pprint import pprint
-
 from confluent_kafka import Producer
 import datetime
 import json
-
 import frappe
 
-from threading import Thread
+from ucraft.constants import KAFKA_BOOTSTRAP_SERVERS, KAFKA_CLIENT_ID, KAFKA_SASL_USERNAME, KAFKA_SASL_PASSWORD, \
+    KAFKA_SECURITY_PROTOCOL, KAFKA_TOPIC
 
 
 def send_to_kafka_async(doc, method, *args, **kwargs):
@@ -17,9 +15,6 @@ def send_to_kafka_async(doc, method, *args, **kwargs):
         "args": args,
         "kwargs": kwargs,
     }
-    print("Sending to Kafka")
-    return
-
     frappe.enqueue(
         method="ucraft.kafka.send_to_kafka",
         queue="short",
@@ -34,17 +29,23 @@ def send_to_kafka(
         *args,
         **kwargs
 ):
-    try:
-        kafka_config = frappe.get_doc(
-            "Kafka Configuration",
-        )
-    except:
-        return
-    should_execute, producer, topic = kafka_config.create_kafka_producer()
+    conf = {
+        'bootstrap.servers': KAFKA_BOOTSTRAP_SERVERS,
+        'security.protocol': KAFKA_SECURITY_PROTOCOL,
+        'sasl.mechanism': 'PLAIN',
+        'sasl.username': KAFKA_SASL_USERNAME,
+        'sasl.password': KAFKA_SASL_PASSWORD,
+        'client.id': KAFKA_CLIENT_ID,
+    }
+    # Create the Kafka producer
+    producer = Producer(conf)
     doc_name = doc.as_dict().get("name", "")
-
-    if method_name not in kafka_config.get_active_events_list():
-        should_execute = False
+    should_execute = True
+    try:
+        kafka_config = frappe.get_doc("Kafka Configuration")
+        should_execute = kafka_config.should_execute(doc_name, method_name)
+    except:
+        pass
 
     if should_execute:
         data = serialize_dates(doc.as_dict())
@@ -55,9 +56,8 @@ def send_to_kafka(
 
         }
         data = json.dumps(final_data)
-
         key = get_kafka_key(doc, method_name)
-        producer.produce(topic, key=key, value=data)
+        producer.produce(KAFKA_TOPIC, key=key, value=data)
         producer.flush()
 
 

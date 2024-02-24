@@ -1,223 +1,167 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-01-06 15:48:08.514098",
+ "creation": "2024-02-23 18:57:28.946233",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "config_values_section",
-  "kafka_client_id",
-  "kafka_bootstrap_service",
-  "kafka_sasl_username",
-  "kafka_sasl_password",
-  "kafka_partitioner",
-  "kafks_security_protocol",
-  "kafka_topic",
-  "disable_sync_to_kafka",
+  "doctypes_to_send_section",
+  "objects_to_sync",
+  "hooks_to_send_section",
   "on_update",
   "on_cancel",
   "on_trash",
   "on_submit",
   "before_insert",
   "after_insert",
+  "after_cancel",
+  "before_restore",
+  "before_delete",
+  "column_break_hslb",
   "before_save",
   "after_save",
   "before_rename",
   "after_rename",
   "before_cancel",
-  "after_cancel",
   "before_trash",
   "after_trash",
-  "before_restore",
   "after_restore",
-  "before_delete",
-  "after_delete",
-  "not_found",
-  "section_break_wjg0",
-  "document_name"
+  "after_delete"
  ],
  "fields": [
   {
-   "fieldname": "config_values_section",
-   "fieldtype": "Section Break",
-   "label": "Config Values"
-  },
-  {
-   "default": "erp-next-producer",
-   "fieldname": "kafka_client_id",
-   "fieldtype": "Data",
-   "label": "Kafka Client ID"
-  },
-  {
-   "default": "kafka-broker-0-dev.stage.ucraft.ai:9094",
-   "fieldname": "kafka_bootstrap_service",
-   "fieldtype": "Data",
-   "label": "Kafka Bootstrap Service"
-  },
-  {
-   "default": "admin",
-   "fieldname": "kafka_sasl_username",
-   "fieldtype": "Data",
-   "label": "Kafka Sasl Username"
-  },
-  {
-   "default": "yt3aSUX644UgCPpJzA3Q5AZ6jWZyZ9",
-   "fieldname": "kafka_sasl_password",
-   "fieldtype": "Data",
-   "label": "Kafka Sasl Password"
-  },
-  {
-   "default": "murmur2",
-   "fieldname": "kafka_partitioner",
-   "fieldtype": "Data",
-   "label": "Kafka Partitioner"
-  },
-  {
-   "default": "SASL_PLAINTEXT",
-   "fieldname": "kafks_security_protocol",
-   "fieldtype": "Data",
-   "label": "Kafks Security Protocol"
-  },
-  {
-   "default": "erp-next-events",
-   "fieldname": "kafka_topic",
-   "fieldtype": "Data",
-   "label": "Kafka Topic"
+   "fieldname": "objects_to_sync",
+   "fieldtype": "Table",
+   "label": "DocTypes to Sync",
+   "options": "Frappe Object"
   },
   {
    "default": "0",
-   "fieldname": "disable_sync_to_kafka",
-   "fieldtype": "Check",
-   "label": "Disable Sync To Kafka"
-  },
-  {
-   
    "fieldname": "on_update",
    "fieldtype": "Check",
    "label": "On Update"
   },
   {
-   
+   "default": "0",
    "fieldname": "on_cancel",
    "fieldtype": "Check",
    "label": "On Cancel"
   },
   {
-   
+   "default": "0",
    "fieldname": "on_trash",
    "fieldtype": "Check",
    "label": "On Trash"
   },
   {
-   
+   "default": "0",
    "fieldname": "on_submit",
    "fieldtype": "Check",
    "label": "On Submit"
   },
   {
-   
+   "default": "0",
    "fieldname": "before_insert",
    "fieldtype": "Check",
    "label": "Before Insert"
   },
   {
-   
+   "default": "0",
    "fieldname": "after_insert",
    "fieldtype": "Check",
    "label": "After Insert"
   },
   {
-   
+   "default": "0",
    "fieldname": "before_save",
    "fieldtype": "Check",
    "label": "Before Save"
   },
   {
-   
+   "default": "0",
    "fieldname": "after_save",
    "fieldtype": "Check",
    "label": "After Save"
   },
   {
-   
+   "default": "0",
    "fieldname": "before_rename",
    "fieldtype": "Check",
    "label": "Before Rename"
   },
   {
-   
+   "default": "0",
    "fieldname": "after_rename",
    "fieldtype": "Check",
    "label": "After Rename"
   },
   {
-   
+   "default": "0",
    "fieldname": "before_cancel",
    "fieldtype": "Check",
    "label": "Before Cancel"
   },
   {
-   
+   "default": "0",
    "fieldname": "after_cancel",
    "fieldtype": "Check",
    "label": "After Cancel"
   },
   {
-   
+   "default": "0",
    "fieldname": "before_trash",
    "fieldtype": "Check",
    "label": "Before Trash"
   },
   {
-   
+   "default": "0",
    "fieldname": "after_trash",
    "fieldtype": "Check",
    "label": "After Trash"
   },
   {
-   
+   "default": "0",
    "fieldname": "before_restore",
    "fieldtype": "Check",
    "label": "Before Restore"
   },
   {
-   
+   "default": "0",
    "fieldname": "after_restore",
    "fieldtype": "Check",
    "label": "After Restore"
   },
   {
-   
+   "default": "0",
    "fieldname": "before_delete",
    "fieldtype": "Check",
    "label": "Before Delete"
   },
   {
-   
+   "default": "0",
    "fieldname": "after_delete",
    "fieldtype": "Check",
    "label": "After Delete"
   },
   {
-   "fieldname": "not_found",
-   "fieldtype": "Check",
-   "label": "Not Found"
+   "fieldname": "doctypes_to_send_section",
+   "fieldtype": "Section Break",
+   "label": "DocTypes To Send"
   },
   {
-   "fieldname": "section_break_wjg0",
-   "fieldtype": "Section Break"
+   "fieldname": "hooks_to_send_section",
+   "fieldtype": "Section Break",
+   "label": "Hooks To Send"
   },
   {
-   "fieldname": "document_name",
-   "fieldtype": "Table",
-   "label": "Document Name",
-   "options": "kafka Document"
+   "fieldname": "column_break_hslb",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-02-22 14:30:09.136702",
+ "modified": "2024-02-23 19:05:53.120884",
  "modified_by": "Administrator",
  "module": "Ucraft",
  "name": "Kafka Configuration",
@@ -230,7 +174,6 @@
    "print": 1,
    "read": 1,
    "role": "System Manager",
-   "select": 1,
    "share": 1,
    "write": 1
   }
