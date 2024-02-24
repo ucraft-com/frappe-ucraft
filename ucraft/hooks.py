@@ -4,7 +4,7 @@ app_publisher = "Webisoft"
 app_description = "This app is an ERPNext integration manager for UCraft"
 app_email = "utkarsh@webisoft.com"
 app_license = "mit"
-app_logo_url = '/assets/whitelabel/images/whitelabel_logo.svg'
+app_logo_url = '/assets/ucraft/images/whitelabel_logo.svg'
 # required_apps = ["frappe/hrms"]
 
 
