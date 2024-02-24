@@ -30,6 +30,7 @@ def create_company_for_ucraft_project(project_id, company_name):
 @frappe.whitelist(allow_guest=True)
 def handle_callback():
     print("handle_callback_called")
+    is_new_user = False
     data = frappe.form_dict
     nonce_token = data.get('nonce')
     if not nonce_token:
@@ -74,16 +75,42 @@ def handle_callback():
         user.first_name = first_name
         user.last_name = last_name
         user.insert(ignore_permissions=True)
+        user.append('roles', {
+            'doctype': 'Has Role',
+            'role': 'System Manager'
+        })
+        is_new_user = True
     else:
         user = frappe.get_doc("User", user[0].name)
     user.auth_token = access_token_data['accessToken']
     user.is_ucraft_user = True
     # Assign the given user all permissions
+    # add all roles expect employee to the user here
     user.save(ignore_permissions=True)
     frappe.local.login_manager.login_as(user.name)
+    if is_new_user:
+        frappe.enqueue(
+            method="ucraft.api.set_permissions_on_user",
+            user_email=user.email
+        )
     redirect_post_login(
         desk_user=frappe.db.get_value("User", frappe.session.user, "user_type") == "System User"
     )
+    print("Is new user", is_new_user)
+    return frappe.local.response
 
 
-
+@frappe.whitelist()
+def set_permissions_on_user(user_email):
+    roles = frappe.get_all("Role", filters={"name": ["!=", "Employee"]})  # Changed 'role_name' to 'name'
+    user = frappe.get_doc('User', user_email)  # Move outside the loop to optimize performance
+    roles_changed = False
+    for role in roles:
+        if not frappe.db.exists('Has Role', {'parent': user_email, 'role': role['name']}):
+            user.append('roles', {
+                'doctype': 'Has Role',
+                'role': role['name']
+            })
+            roles_changed = True  # Flag to indicate at least one role has been added
+    if roles_changed:
+        user.save(ignore_permissions=True)  # Save once if any changes
