@@ -12,7 +12,7 @@ def before_install():
 def after_install():
     create_ucraft_project_id_field()
     create_ucraft_authtoken_and_is_ucraft_user_field_on_user()
-    os.system("bench migrate")
+    # os.system("bench migrate")
 
 
 def create_ucraft_authtoken_and_is_ucraft_user_field_on_user():
